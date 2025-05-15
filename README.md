@@ -13,9 +13,11 @@ If a suitable configuration is found the following \<Plugin\> mapping are provid
 - '\<Plug\>(TermwRun)' launch the 'run' command (es. 'cargo run')
 - '\<Plug\>(TermwBuild)' launch the 'build' command (es. 'cargo build')
 
-Example Configuration
-plugin\setup.lua:
+Example Configuration in plugin\setup.lua:
 ```lua
+
+--- omitted text ---
+
 -- Expand this map as needed
 local configs = {
 	rust = {
@@ -27,5 +29,7 @@ local configs = {
     run = 'make clean',
   }
 }
+
+--- omitted text ---
 ```
 
