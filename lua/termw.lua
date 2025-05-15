@@ -1,4 +1,7 @@
-local M = {}
+local M = {
+	BUILD = nil,
+	RUN = nil,
+}
 
 local geometry = nil
 
@@ -17,7 +20,7 @@ function set_geometry()
 	end
 end
 
-function M.open()
+local function open()
 	set_geometry()
 	local w = vim.api.nvim_open_win(0, true, {
 		relative = 'editor',
@@ -36,14 +39,40 @@ function M.open()
 	return vim.api.nvim_win_get_buf(w)
 end
 
-function M.run(cmd_string)
-	local buf = M.open()
+local function cmd(cmd_string)
+	local buf = open()
 	vim.api.nvim_buf_set_keymap(buf, 't', '<Esc>', '<C-\\><C-n>', { noremap = true})
 	vim.api.nvim_buf_set_keymap(buf, 'n', '<Esc>', '<C-w><C-q>', { noremap = true})
 	vim.cmd('startinsert')
 	local keys = vim.api.nvim_replace_termcodes('<CR>' .. cmd_string .. '<CR>', true, false, true)
 	vim.api.nvim_feedkeys(keys, 'i', false)
 
+end
+
+function M.setup(opts)
+	if opts.build ~= nil then
+		M.BUILD = opts.build
+	end
+
+	if opts.run ~= nil then
+		M.RUN = opts.run
+	end
+end
+
+function M.run()
+	if M.RUN ~= nil then
+		cmd(M.RUN)
+	end
+end
+
+function M.build()
+	if M.BUILD ~= nil then
+		cmd(M.BUILD)
+	end
+end
+
+function M.say(h)
+	print("Say: " .. h)
 end
 
 return M
