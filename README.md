@@ -24,10 +24,10 @@ local configs = {
 		build = 'cargo build',
 		run = 'cargo run',
 	},
-  make = {
-    build = 'make',
-    run = 'make clean',
-  }
+	make = {
+		build = 'make',
+		run = 'make clean',
+	}
 }
 
 --- omitted text ---
