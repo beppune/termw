@@ -13,6 +13,11 @@ If a suitable configuration is found the following \<Plugin\> mapping are provid
 - '\<Plug\>(TermwRun)' launch the 'run' command (es. 'cargo run')
 - '\<Plug\>(TermwBuild)' launch the 'build' command (es. 'cargo build')
 
+You can bind them like this (vimscript):
+```vimscript
+:nmap <Leader>r <Plug>(TermwRun)
+```
+
 Example Configuration in plugin\setup.lua:
 ```lua
 
