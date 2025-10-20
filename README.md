@@ -3,7 +3,7 @@
 This little plugin configure a terminal window to launch
 common commands when programming
 
-Commands are configured in plugin/setup.lua in 'configs' table that you can expand expand as needed.
+Commands are configured in plugin/setup.lua in 'configs' table that you can expand as needed.
 Each 'configs' key must be a 'filetype' string and the value for each key is a table.
 In such table two command strings which are named named with the 'run' and 'build' keys are available to be configured.
 Other keys are ignored.
