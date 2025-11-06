@@ -12,10 +12,12 @@ If a suitable configuration is found the following \<Plugin\> mapping are provid
 
 - '\<Plug\>(TermwRun)' launch the 'run' command (es. 'cargo run')
 - '\<Plug\>(TermwBuild)' launch the 'build' command (es. 'cargo build')
+- '\<Plug\>(TermwTest)' launch the 'test' command (es. 'cargo test')
 
 You can bind them like this (vimscript):
 ```vimscript
 :nmap <Leader>r <Plug>(TermwRun)
+:nmap <F5> <Plug>(TermwTest)
 ```
 
 Example Configuration in plugin\setup.lua:

@@ -1,5 +1,6 @@
 local M = {
 	BUILD = nil,
+	TEST = nil,
 	RUN = nil,
 }
 
@@ -57,6 +58,10 @@ function M.setup(opts)
 	if opts.run ~= nil then
 		M.RUN = opts.run
 	end
+
+	if opts.test ~= nil then
+		M.TEST = opts.run
+	end
 end
 
 function M.run()
@@ -71,8 +76,10 @@ function M.build()
 	end
 end
 
-function M.say(h)
-	print("Say: " .. h)
+function M.test()
+	if M.TEST ~= nil then
+		cmd(M.TEST)
+	end
 end
 
 return M
